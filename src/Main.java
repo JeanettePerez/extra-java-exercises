@@ -55,36 +55,9 @@ public class Main {
         //  2. What is repetitive. where is the pattern
         //      looking at the while loop statements
 
-        int principal = 0;
-        byte years = 0;
-        float annualInterest = 0;
-
-        Scanner sc = new Scanner(System.in);
-
-
-        while(true) {
-            System.out.print("Principal ($1k - $1M): ");
-            principal = sc.nextInt();
-            if (principal >= 1000 && principal <= 1_000_000)
-                break;
-            System.out.println("Enter a number between 1,000 and 1,000,000.");
-        }
-
-        while (true) {
-            System.out.print("Annual Interest rate: ");
-            annualInterest = sc.nextFloat();
-            if(annualInterest >= 1 && annualInterest <= 30)
-                break;
-            System.out.println("Enter a value between 1 and 30");
-        }
-
-        while (true) {
-            System.out.print("Period (Years): ");
-            years = sc.nextByte();
-            if(years >= 1 && years <= 30)
-                break;
-            System.out.println("Enter value between 1 and 30");
-        }
+       int principal = (int) readNumber("Principal: ", 1_000, 1_000_000);
+       float annualInterest = (float) readNumber("Annual Interest rate: ", 1, 30);
+       byte years = (byte) readNumber("Period (Years): ", 1, 30);
 
         double mortgage = calculateMortgage(principal, annualInterest, years);
 
@@ -93,8 +66,18 @@ public class Main {
 
     }
 
-
-
+    public static double readNumber(String prompt, double min, double max) {
+        Scanner scanner = new Scanner(System.in);
+        double value;
+        while (true) {
+            System.out.print(prompt);
+            value = scanner.nextFloat();
+            if(value >= min && value <= max)
+                break;
+            System.out.println("Enter a value between " + min + " and " + max);
+        }
+        return value;
+    }
 
     // using a double as the return type because it is the data type we use for storing methods
     // as parameters we add what we are calculating with the correct data type
@@ -102,7 +85,6 @@ public class Main {
             int principal,
             float annualInterest,
             byte years) {
-
 
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
