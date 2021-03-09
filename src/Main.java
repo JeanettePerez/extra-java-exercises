@@ -1,5 +1,4 @@
 public class Main {
-
     public static void main(String[] args) {
 
 //   ======== classes and objects ========
@@ -37,15 +36,30 @@ public class Main {
         // order and others don't have the correct information in order to write it correctly
         // fixing this problem below
 // ========= Constructors =========
-        Employee employee = new Employee(
-                50_000, 20); // job of constructors is to initialize our fields to a default value
-            // === default values ===
-            //  booleans are false
-            //  numbers are zero
-            //  reference types are null
-        int wage = employee.calculateWage(10);
-        System.out.println(wage);
+//        Employee employee = new Employee(
+//                50_000, 20); // job of constructors is to initialize our fields to a default value
+//        Employee.printNumberOfEmployees(); // now the employee class has two members on field and one method
+//        // === default values ===
+//            //  booleans are false
+//            //  numbers are zero
+//            //  reference types are null
+//        int wage = employee.calculateWage(10);
+//        System.out.println(wage);
+// ========= Mortgage calculator =========
+
+        int principal = (int) Console.readNumber("Principal: ", 1_000, 1_000_000);
+        float annualInterest = (float) Console.readNumber("Annual Interest rate: ", 1, 30);
+        byte years = (byte) Console.readNumber("Period (Years): ", 1, 30);
+
+        var calculator = new MortgageCalculator(principal, annualInterest, years);
+        var report = new MortgageReport((calculator));
+
+        report.printMortgage();
+        report.printPaymentSchedule();
+
 
     }
 
 }
+
+
