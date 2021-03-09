@@ -3,9 +3,19 @@ public class Employee {
     private int baseSalary; // implementation details
     private int hourlyRate;
 
+    public static int numberOfEmployees;
+
     public Employee(int baseSalary, int hourlyRate) { // creating a constructor. they dont need a return type
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
+        numberOfEmployees++; // everytime you create a new employee object increment number of employees
+    }
+
+    public static void printNumberOfEmployees(){
+        System.out.println(numberOfEmployees);
+    }
+    public Employee(int baseSalary){ // this is if you have employees that can't get extra hour.
+        this(baseSalary, 0); // this is constructor overloading
     }
 
 
