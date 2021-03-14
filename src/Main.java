@@ -47,15 +47,24 @@ public class Main {
 //        System.out.println(wage);
 // ========= Mortgage calculator =========
 
-        int principal = (int) Console.readNumber("Principal: ", 1_000, 1_000_000);
-        float annualInterest = (float) Console.readNumber("Annual Interest rate: ", 1, 30);
-        byte years = (byte) Console.readNumber("Period (Years): ", 1, 30);
+//        int principal = (int) Console.readNumber("Principal: ", 1_000, 1_000_000);
+//        float annualInterest = (float) Console.readNumber("Annual Interest rate: ", 1, 30);
+//        byte years = (byte) Console.readNumber("Period (Years): ", 1, 30);
+//
+//        var calculator = new MortgageCalculator(principal, annualInterest, years);
+//        var report = new MortgageReport((calculator));
+//
+//        report.printMortgage();
+//        report.printPaymentSchedule();
 
-        var calculator = new MortgageCalculator(principal, annualInterest, years);
-        var report = new MortgageReport((calculator));
+// ========= Inheritance lesson =========
+//        var control = new TextBox(); // because the TextBox class extends the UIControl class it has all the methods of UIControl
+//        control.disable();
+//        System.out.println(control.isEnabled());
+// ========= Constructors and inheritance =========
+        var textBox = new TextBox();
 
-        report.printMortgage();
-        report.printPaymentSchedule();
+
 
 
     }
