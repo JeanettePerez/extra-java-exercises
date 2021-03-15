@@ -1,3 +1,5 @@
+package codewithmosh;
+
 import java.text.NumberFormat;
 
 public class MortgageReport {

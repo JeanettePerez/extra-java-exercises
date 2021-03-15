@@ -1,3 +1,5 @@
+package codewithmosh;
+
 public class Employee {
 
     private int baseSalary; // implementation details

@@ -1,3 +1,5 @@
+package codewithmosh;
+
 public class CreatingMethod {
 
     public static void main(String[] args) {

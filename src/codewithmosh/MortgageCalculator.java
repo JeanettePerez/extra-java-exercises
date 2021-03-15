@@ -1,3 +1,5 @@
+package codewithmosh;
+
 public class MortgageCalculator {
 
     // ========= Constants for the mortgage cal =========
