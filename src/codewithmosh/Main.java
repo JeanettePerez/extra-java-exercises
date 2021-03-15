@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -62,11 +64,19 @@ public class Main {
 //        control.disable();
 //        System.out.println(control.isEnabled());
 // ========= Constructors and inheritance =========
-        var textBox = new TextBox();
+//        var textBox = new TextBox();
+// ========= UpCasting and DownCasting
+        var control = new UIControl(true);
+        var textbox = new TextBox();
+        show(textbox);
+    }
 
-
-
-
+    public static void show(UIControl control) {
+        if (control instanceof TextBox) {
+            var textBox = (TextBox) control;
+            textBox.setText("Hello World");
+        }
+        System.out.println(control);
     }
 
 }

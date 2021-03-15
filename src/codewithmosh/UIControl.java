@@ -4,7 +4,7 @@ public class UIControl {
 
     public UIControl(boolean isEnabled) {
         this.isEnabled = isEnabled;
-        System.out.println("UIControl");
+//        System.out.println("UIControl");
     }
 
     public void enable() {

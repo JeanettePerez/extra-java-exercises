@@ -4,7 +4,12 @@ public class TextBox extends UIControl {
 
     public TextBox() {
         super(true);
-        System.out.println("TextBox");
+//        System.out.println("TextBox");
+    }
+
+    @Override
+    public String toString(){
+        return text;
     }
 
     public void setText(String text){ // void is the return type because you don't want to return values here
@@ -14,4 +19,5 @@ public class TextBox extends UIControl {
     public void clear() {
        text = "";
     }
+
 }
