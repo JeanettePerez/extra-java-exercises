@@ -86,9 +86,37 @@ public class Main {
 //        // in order to not have a big if statement we make a render method in the parent and override it in the child
 //            for (var control : controls) // control is taking many forms when it is being iterated through
 //                control.render(); // polymorphism
-// ========= Abstract Classes and Methods
+// ========= Creating an Interface
 
+        // === Constructor Injection: more common
+        // hand writing a dependency is what they call poor man dependency injection
+        // in larger applications you have 100s of classes with larger dependency so you shouldn't
+        // create objects and pass them to constructors of your classes.
+        // spring is a dependency injection framework
+//    var calculator = new TaxCalculator2018(100_000);
+//    var report = new TaxReport(calculator);
 
+    // === Setter Injection: only use if this is what you need
+    // change the dependency of a class throughout the lifetime of an application
+        // allows us to change the dependency of the class at runtime
+        // but you have to remember to call it
+//        var calculator = new TaxCalculator2018(100_000);
+//        var report = new TaxReport(calculator); // calculator the new instance of TaxCalculator2018 which is a parameter of the TaxReport constructor
+//        report.show(); // show method when it didnt have a parameter
+//
+//        // below uses the setter method
+//        report.setCalculator(new TaxCalculator2019()); // calling our setter and passing an instance of a class
+//        report.show(); // show method when it didn't have a parameter
+
+    // === Method Injection
+        // passing a dependency to the method that needs that dependency
+//        var calculator = new TaxCalculator2018(100_000);
+//        var report = new TaxReport();
+//        report.show(calculator); // passing the instance of TaxCalculator2018
+//        report.show(new TaxCalculator2019()); // when you want to show the report again you can pass a new dependency
+// === Interface Segregation Principle
+     // based on the principle we should segregate or divide interfaces into smaller ones
+        // reduces the impact of changes
 
 
 
