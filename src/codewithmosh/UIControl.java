@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package codewithmosh;
 
 // abstract classes: we declare a class, but don't want to create new instances of the class
 // it is meant to be a base for other classes to work wit

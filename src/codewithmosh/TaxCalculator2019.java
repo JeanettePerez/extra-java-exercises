@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package codewithmosh;
 
 public class TaxCalculator2019 implements TaxCalculator {
     // when implementing an interface you need to implement the methods from it as well

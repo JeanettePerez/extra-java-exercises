@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package codewithmosh;
 
 public interface Draggable {
     void drag();

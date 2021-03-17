@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package codewithmosh;
 
 import java.util.Objects;
 

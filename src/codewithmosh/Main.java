@@ -1,5 +1,7 @@
 package codewithmosh;
 
+import codewithmosh.exceptions.ExceptionDemo;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -117,7 +119,8 @@ public class Main {
 // === Interface Segregation Principle
      // based on the principle we should segregate or divide interfaces into smaller ones
         // reduces the impact of changes
-
+// ========= Exceptions =========
+        ExceptionDemo.show();
 
 
 
