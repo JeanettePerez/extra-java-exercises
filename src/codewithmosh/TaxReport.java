@@ -1,4 +1,4 @@
-package codewithmosh;
+package com.codewithmosh;
 
 public class TaxReport {
 

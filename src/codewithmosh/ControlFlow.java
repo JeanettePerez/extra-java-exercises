@@ -1,4 +1,4 @@
-package codewithmosh;
+package com.codewithmosh;
 
 import com.sun.security.jgss.GSSUtil;
 

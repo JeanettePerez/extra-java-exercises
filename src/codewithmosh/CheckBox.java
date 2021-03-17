@@ -1,4 +1,4 @@
-package codewithmosh;
+package com.codewithmosh;
 
 public final class CheckBox extends UIControl {
     @Override
