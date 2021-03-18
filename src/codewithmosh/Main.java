@@ -2,6 +2,8 @@ package codewithmosh;
 
 import codewithmosh.exceptions.ExceptionDemo;
 
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -120,10 +122,14 @@ public class Main {
      // based on the principle we should segregate or divide interfaces into smaller ones
         // reduces the impact of changes
 // ========= Exceptions =========
-        ExceptionDemo.show();
-
-
-
+        // === What is an exception
+//        ExceptionDemo.show(); // unchecked exception
+        // === Catching exceptions
+        try {
+            ExceptionDemo.show();
+        } catch (Throwable e) { // throwable is th parent to all exceptions and errors in java
+            System.out.println("An exception error occurred ");
+        }
 
 
     }
