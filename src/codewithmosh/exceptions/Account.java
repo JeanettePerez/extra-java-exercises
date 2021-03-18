@@ -3,7 +3,7 @@ package codewithmosh.exceptions;
 import java.io.IOException;
 
 public class Account {
-    private float balance; // for custom exceptions and Chaining exceptions
+   // private float balance; // for custom exceptions and Chaining exceptions
 
     // ========= Throwing a unchecked exception
 //    public void deposit(float value) {
@@ -36,23 +36,23 @@ public class Account {
     //      3. create a new AccountException object from the class we created not java
     //      4. the accountException was caused by fundsException so we attach initCause which passes a throwable object
     //      5. pass an instance of the throwable class or any of it's derivatives
-    public void deposit(float value) throws IOException {
-        if (value <= 0)
-            throw new IOException();
-    }
-
-    // === with no custom constructor in AccountExceptions class
-//    public void withdraw(float value) throws AccountException{
-//        if (value > balance) {
-//            var fundsException = new InsufficientFundException();
-//            var accountException = new AccountException();
-//            accountException.initCause(fundsException);
-//            throw accountException; //
-//        }
+//    public void deposit(float value) throws IOException {
+//        if (value <= 0)
+//            throw new IOException();
 //    }
-    // === with custom constructor in AccountException class
-    public void withdraw(float value) throws AccountException {
-        if (value > balance)
-            throw new AccountException(new InsufficientFundException());
-    }
+//
+//    // === with no custom constructor in AccountExceptions class
+////    public void withdraw(float value) throws AccountException{
+////        if (value > balance) {
+////            var fundsException = new InsufficientFundException();
+////            var accountException = new AccountException();
+////            accountException.initCause(fundsException);
+////            throw accountException; //
+////        }
+////    }
+//    // === with custom constructor in AccountException class
+//    public void withdraw(float value) throws AccountException {
+//        if (value > balance)
+//            throw new AccountException(new InsufficientFundException());
+//    }
 }

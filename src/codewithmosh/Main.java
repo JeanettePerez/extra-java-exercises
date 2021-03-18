@@ -125,11 +125,11 @@ public class Main {
         // === What is an exception
 //        ExceptionDemo.show(); // unchecked exception
         // === Catching exceptions
-        try {
-            ExceptionDemo.show();
-        } catch (Throwable e) { // throwable is th parent to all exceptions and errors in java
-            System.out.println("An exception error occurred ");
-        }
+//        try {
+//            ExceptionDemo.show();
+//        } catch (Throwable e) { // throwable is th parent to all exceptions and errors in java
+//            System.out.println("An exception error occurred ");
+//        }
 
 
     }

@@ -126,14 +126,14 @@ public class ExceptionDemo {
 //        }
 //    }
     // ========= Chaining Exceptions
-    public static void show() {
-        var account = new Account();
-        try {
-            account.withdraw(10);
-        } catch (AccountException e) {
-            e.printStackTrace(); // traces where the exception was thrown
-            var cause = e.getCause();
-            System.out.println(cause.getMessage()); // will print out the cause of the error
-        }
-    }
+//    public static void show() {
+//        var account = new Account();
+//        try {
+//            account.withdraw(10);
+//        } catch (AccountException e) {
+//            e.printStackTrace(); // traces where the exception was thrown
+//            var cause = e.getCause();
+//            System.out.println(cause.getMessage()); // will print out the cause of the error
+//        }
+//    }
 }
