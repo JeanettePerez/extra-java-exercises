@@ -1,6 +1,7 @@
 package codewithmosh;
 
 import codewithmosh.exceptions.ExceptionDemo;
+import codewithmosh.generics.*;
 
 import java.io.IOException;
 
@@ -85,7 +86,7 @@ public class Main {
 //        System.out.println(point2.hashCode()); // 994,
 //        // the original hasCode compares objs based on the reference in memory
 // ========= Polymorphism ========
-    //   create an array of control objects and render each object on the console
+        //   create an array of control objects and render each object on the console
 //        UIControl[] controls = { new TextBox(), new CheckBox() }; // you can do this if you need to render a form with multiple boxes
 //        // in order to not have a big if statement we make a render method in the parent and override it in the child
 //            for (var control : controls) // control is taking many forms when it is being iterated through
@@ -100,8 +101,8 @@ public class Main {
 //    var calculator = new TaxCalculator2018(100_000);
 //    var report = new TaxReport(calculator);
 
-    // === Setter Injection: only use if this is what you need
-    // change the dependency of a class throughout the lifetime of an application
+        // === Setter Injection: only use if this is what you need
+        // change the dependency of a class throughout the lifetime of an application
         // allows us to change the dependency of the class at runtime
         // but you have to remember to call it
 //        var calculator = new TaxCalculator2018(100_000);
@@ -112,14 +113,14 @@ public class Main {
 //        report.setCalculator(new TaxCalculator2019()); // calling our setter and passing an instance of a class
 //        report.show(); // show method when it didn't have a parameter
 
-    // === Method Injection
+        // === Method Injection
         // passing a dependency to the method that needs that dependency
 //        var calculator = new TaxCalculator2018(100_000);
 //        var report = new TaxReport();
 //        report.show(calculator); // passing the instance of TaxCalculator2018
 //        report.show(new TaxCalculator2019()); // when you want to show the report again you can pass a new dependency
 // === Interface Segregation Principle
-     // based on the principle we should segregate or divide interfaces into smaller ones
+        // based on the principle we should segregate or divide interfaces into smaller ones
         // reduces the impact of changes
 // ========= Exceptions =========
         // === What is an exception
@@ -130,10 +131,61 @@ public class Main {
 //        } catch (Throwable e) { // throwable is th parent to all exceptions and errors in java
 //            System.out.println("An exception error occurred ");
 //        }
+// ========= The need for Generics =========
+        // Integer list
+//       var list = new GenericList<Integer>(); // in the <> you store the type of object you want as the list
+//        list.add(1);
+//       int number = list.get(0);
+        // User list
+//      var list = new GenericList<User>();
+//      list.add(new User());
+//      User user = list.get(0);
+        // generics will help you catch mistakes at compile time
+// ========= Generics and Primitive Types =========
+//    GenericList<Integer> numbers = new GenericList<>();
+//    numbers.add(1); // the java compiler will create an instance of the Integer class to store the numeric value
+//        // the process above is called boxing
+//    int number = numbers.get(0); // unboxing
+        // above is how to create primitive types that work with primitive values
+        // can only store reference types in this GenericList
+        // if you wat to store primitive type in the GenericList you have to use the
+        // the wrapper class
+        //   int -> Integer
+        //   float -> Float
+        //   boolean -> Boolean
 
 
+// =========== Comparable Interface
+//        var user1 = new User(10);
+//        var user2 = new User(20);
+//        // < and > are used to compare numbers and characters not reference types
+//        if (user1.compareTo(user2) < 0)// to compare to user objects then check if the result is less than zero
+//            System.out.println("user1 is less than user1");
+//        else if (user1.compareTo(user2) == 0)
+//            System.out.println("user1 is equal to user2");
+//        else
+//            System.out.println("user1 is greater than user2");
+// ========= Generic Methods
+        // create a generic method in a none generic class
+        // getting the max number between the integers
+//        var max1 = Utils.max(1, 3);
+//        System.out.println(max1);
+//
+//        //
+//        var max2 = Utils.max(new User(10), new User(20));
+//        System.out.println(max2); // have to override the two string in order to get the correct output
+// ========= Multiple Type Parameters
+//    Utils.print(1, 10); // you can do different type parameters
+//    }
+// ========= Generic Classes and Inheritance
+// if you have a variable of type user we can set it to an instance of user or it's derivatives
+// however if you were wanting a list of instructors you have to do extra steps
+// a generic list of instructors is not a subtype of User
+        // generic list are single class use
+//        var instructors = new GenericList<Instructor>();
+//        var users = new GenericList<User>(); // to fix this problem is using a wildcard
+//        Utils.printUsers(instructors); // with the wildcard you can pass instructors into printUsers
     }
-
     // Upcasting and DownCasting
 //    public static void show(UIControl control) {
 //        if (control instanceof TextBox) {
@@ -144,5 +196,6 @@ public class Main {
 //    }
 
 }
+
 
 
