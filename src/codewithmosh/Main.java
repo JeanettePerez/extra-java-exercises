@@ -1,9 +1,16 @@
 package codewithmosh;
 
+//import codewithmosh.collections.CollectionsDemo;
+import codewithmosh.collections.Customer;
+import codewithmosh.collections.EmailComparator;
+import codewithmosh.collections.ListDemo;
 import codewithmosh.exceptions.ExceptionDemo;
 import codewithmosh.generics.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -185,7 +192,55 @@ public class Main {
 //        var instructors = new GenericList<Instructor>();
 //        var users = new GenericList<User>(); // to fix this problem is using a wildcard
 //        Utils.printUsers(instructors); // with the wildcard you can pass instructors into printUsers
+//  ========= The need for Iterables / The Iterable Interface
+       // problem1: how to iterate over a list and not know anything about it's implementation
+        // solution1: is to implement The iterable Interface
+//        var list = new GenericList<String>();
+//        var iterator = list.iterator(); // how we loop over our list without knowing anything about implementation
+//
+//        while (iterator.hasNext()) { // the loop is asking "do you have more items" condition is true while there are still items in the list
+//            var currentObject = iterator.next(); // return the current object. will loop through until the condition is false
+//            System.out.println(currentObject);
+//        }
+        // syntax sugar: use a for loop instead of the while. the compiler does the conversion for you
+        // Getting an array list of unknown using a for loop
+//        var list = new GenericList<String>();
+//        list.add("a");
+//        list.add("b");
+//        for (var item : list)
+//            System.out.println(item);
+// ========== Collection Interface
+       // CollectionsDemo.show();
+// ========== List Interface
+      //  ListDemo.show();
+// ========== Comparable Interface
+        List<Customer> customers = new ArrayList<>();
+        customers.add(new Customer("b" , "e3"));
+        customers.add(new Customer("a", "e2"));
+        customers.add(new Customer("c", "e1"));
+        Collections.sort(customers, new EmailComparator());
+        System.out.println(customers);
+// ========== Queue Interface
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Upcasting and DownCasting
 //    public static void show(UIControl control) {
 //        if (control instanceof TextBox) {
