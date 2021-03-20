@@ -1,9 +1,7 @@
 package codewithmosh;
 
 //import codewithmosh.collections.CollectionsDemo;
-import codewithmosh.collections.Customer;
-import codewithmosh.collections.EmailComparator;
-import codewithmosh.collections.ListDemo;
+import codewithmosh.collections.*;
 import codewithmosh.exceptions.ExceptionDemo;
 import codewithmosh.generics.*;
 
@@ -219,10 +217,11 @@ public class Main {
         customers.add(new Customer("a", "e2"));
         customers.add(new Customer("c", "e1"));
         Collections.sort(customers, new EmailComparator());
-        System.out.println(customers);
+        System.out.println(customers); // [c, a, b] sorting by email
 // ========== Queue Interface
-
-
+        QueueDemo.showQueue(); // using queue.peek(); to return the first item in the queue
+// ========== Set Interface
+        SetDemo.showSet();
 
 
 
