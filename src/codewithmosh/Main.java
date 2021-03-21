@@ -212,16 +212,18 @@ public class Main {
 // ========== List Interface
       //  ListDemo.show();
 // ========== Comparable Interface
-        List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer("b" , "e3"));
-        customers.add(new Customer("a", "e2"));
-        customers.add(new Customer("c", "e1"));
-        Collections.sort(customers, new EmailComparator());
-        System.out.println(customers); // [c, a, b] sorting by email
-// ========== Queue Interface
-        QueueDemo.showQueue(); // using queue.peek(); to return the first item in the queue
-// ========== Set Interface
-        SetDemo.showSet();
+//        List<Customer> customers = new ArrayList<>();
+//        customers.add(new Customer("b" , "e3"));
+//        customers.add(new Customer("a", "e2"));
+//        customers.add(new Customer("c", "e1"));
+//        Collections.sort(customers, new EmailComparator());
+//        System.out.println(customers); // [c, a, b] sorting by email
+//// ========== Queue Interface: QueueDemo
+//        QueueDemo.showQueue(); // using queue.peek(); to return the first item in the queue
+//// ========== Set Interface: SetDemo
+//        SetDemo.showSet();
+// ========== Map Interface: MapDemo
+        MapDemo.showMap();
 
 
 
