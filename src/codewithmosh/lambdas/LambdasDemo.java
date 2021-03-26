@@ -1,10 +1,7 @@
 package codewithmosh.lambdas;
 
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class LambdasDemo {
 //    public static String prefix = "-"; // used for E3
@@ -95,6 +92,20 @@ public class LambdasDemo {
 //        // .negate() // returns the opposite of the first argument
 //        Predicate<String> hasLeftAndRightBraces = hasLeftBrace.and(hasRightBrace);
 //        hasLeftAndRightBraces.test("{This will return true because both curly braces are present}");
+// ========== BinaryOperator Interface ==========
+//        BinaryOperator<Integer> add = (a,b) -> a + b;
+//        Function <Integer, Integer> sqaure = a -> a * a;
+//        var results = add.andThen(sqaure).apply(1,2);
+//        System.out.println(results);
+        // if working wth large number of primitive integers
+        // use IntBinaryOperator for faster processing
+// ========== UnaryOperator ===========
+//        TODO: increment a value and get the square of the result
+//    UnaryOperator<Integer> square = n -> n * n;
+//    UnaryOperator<Integer> increment = n -> n + 1;
+//
+//    var result1 = increment.andThen(sqaure).apply(1); // 1 is the number we are incrementing andThen squaring
+//        System.out.println(result1);
 
 
     }
