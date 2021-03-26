@@ -1,5 +1,11 @@
 package codewithmosh.lambdas;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
 public class LambdasDemo {
 //    public static String prefix = "-"; // used for E3
 
@@ -41,8 +47,54 @@ public class LambdasDemo {
 //        greet(demo::print);
 //      === Constructor E4.3
 //        greet(LambdasDemo::new);
+// ========== using Consumer interface ==========
+//        List<Integer> list = List.of(1,2,3);
+//        list.forEach(item -> System.out.println(item)); // for each item in this list print it
+// ========== Chaining Consumer ==========
+//        List<String> list = List.of("a","b","c");
+//        Consumer<String> print = item -> System.out.println(item); // declaring an operation named print that names and item and prints it on a terminal
+//        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
+//        // TODO: iterate over the list and for each item we want to execute the two operations in sequence
+//        list.forEach(print.andThen(printUpperCase)); // for each item we are going to print it then print it in uppercase
+// ========== The supplier Interface ==========
+//        Supplier<Double> getRandom = () -> Math.random(); // function is not executed till we call it
+//        var random = getRandom.get(); // how we call it
+//        System.out.println(random);
+// =========== The function Interface ==========
+//       // Function<String, Integer> map = str -> str.length();
+//        Function<String, Integer> map = String::length; // can also use this
+//        var length = map.apply("sky");
+//        System.out.println(length);
+// ========== Composing Functions ===========
+// TODO: take a string in the format "key:value" pass the string through two transformations it to
+//  first: "key=value" and second: "{key=value}". declare two small functions and compose them to a larger more complex function
 
+//       Function<String, String> replaceColon = str -> str.replace(":","=");
+//       Function<String, String> addBraces = str -> "{" + str + "}";
+//       // you can either do result1 or result2 they will give you the same results
+//
+//       var results1 = replaceColon
+//               .andThen(addBraces)
+//               .apply("key:value");
+//
+//       var results2 = addBraces.compose(replaceColon).apply("key:value"); // same as above
+//        System.out.println(results1);
+//        System.out.println(results2);
+// ========== The predicate Interface ==========
+        Predicate<String> isLongerThan5 = str -> str.length() > 5;
+        // var results = isLongerThan5.test("sky"); // example of how to call it
 
+// =========== Combining Predicates ==========
+    // combining predicates to make more complex predicates
+//        Predicate<String> hasLeftBrace = str -> str.startsWith("{");
+//        Predicate<String> hasRightBrace = str -> str.endsWith("}");
+//
+//        // this will bring up
+//        // .add() // &&
+//        // .or() // ||
+//        // .negate() // returns the opposite of the first argument
+//        Predicate<String> hasLeftAndRightBraces = hasLeftBrace.and(hasRightBrace);
+//        hasLeftAndRightBraces.test("{This will return true because both curly braces are present}");
 
 
     }
