@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -102,23 +104,41 @@ public class StreamsDemo {
 //             .peek(t -> System.out.println("Mapped: " + t))
 //             .forEach(System.out::println);
 // ========= Reducers =========
-        List<Movie> movies = List.of(
-                new Movie("a", 10),
-                new Movie("b",20),
-                new Movie("c",30)
-        );
+//        List<Movie> movies = List.of(
+//                new Movie("a", 10),
+//                new Movie("b",20),
+//                new Movie("c",30)
+//        );
 // if you want to add all the likes
 //        Optional<Integer> sum = movies.stream()
 //                .map(Movie::getLikes)
 //                .reduce(Integer::sum); // sum is a method in Integer class
 //        // .reduce((a,b) -> a+b) the accumulator
 //        System.out.println(sum.orElse(0));
-        Integer sum = movies.stream()
-                .map(Movie::getLikes)
-                .reduce(0, Integer::sum); // sum is a method in Integer class
-        // .reduce((a,b) -> a+b) the accumulator
-        System.out.println(sum);
+//        Integer sum = movies.stream()
+//                .map(Movie::getLikes)
+//                .reduce(0, Integer::sum); // sum is a method in Integer class
+//        // .reduce((a,b) -> a+b) the accumulator
+//        System.out.println(sum);
         // reduce we can preform general purpose reduction
+
+
+// ========= Collectors =========
+        List<Movie> movies = List.of(
+                new Movie("a", 10),
+                new Movie("b",20),
+                new Movie("c",30)
+        );
+//        var results = movies.stream()
+//                .filter(m -> m.getLikes() > 10)
+//                .collect(Collectors.summarizingInt(Movie::getLikes));
+//        System.out.println(results);
+
+        var results2 = movies.stream()
+                .filter(m -> m.getLikes() > 10)
+                .map(Movie::getTitle)
+                .collect(Collectors.joining(", "));
+        System.out.println(results2);
     }
 
     public static void main(String[] args) {
