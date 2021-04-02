@@ -1,5 +1,9 @@
 package concurrency;
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreadDemo {
     public static void threadShow() {
 // ========== Processes and Threads =========
@@ -17,15 +21,33 @@ public class ThreadDemo {
 //        }
 //        System.out.println(Thread.currentThread().getName()); // the main of the current thread that is running
 // === interrupting thread
-    Thread thread = new Thread(new DownloadFileTask());
-    thread.start();
+//    Thread thread = new Thread(new DownloadFileTask());
+//    thread.start();
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        thread.interrupt();
+// ========= Race Conditions
+// making a new instance of the DownloadStatus class
+        var status = new DownloadStatus();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        List<Thread> threads = new ArrayList<>();
+        for(var i = 0; i < 10; i++)  {
+            var thread = new Thread(new DownloadFileTask(status));
+            thread.start();
+            threads.add(thread);
         }
-        thread.interrupt();
+        for (var thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(status.getTotalBytes());
+        }
     }
 
 
