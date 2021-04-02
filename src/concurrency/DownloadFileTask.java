@@ -1,11 +1,16 @@
 package concurrency;
 
 public class DownloadFileTask implements Runnable{
+
     private DownloadStatus status;
 
-    public DownloadFileTask(DownloadStatus status) {
-        this.status = status;
-    }
+//    public DownloadFileTask(DownloadStatus status) { // for race conditions
+//        this.status = status;
+//    }
+
+public DownloadFileTask() { // for confinement
+    this.status = new DownloadStatus(); // so each thread can work with it's own status object
+}
 
     @Override
     public void run() {
@@ -37,5 +42,8 @@ public class DownloadFileTask implements Runnable{
         System.out.println("Download complete " + Thread.currentThread().getName());
     }
 
+    public DownloadStatus getStatus() { // to get the status in main
+        return status;
+    }
 
 }
