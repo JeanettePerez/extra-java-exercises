@@ -32,6 +32,7 @@ public class ThreadDemo {
 //        thread.interrupt();
 // ========= Race Conditions
         // this won't work fixing it below
+        // multiple threads are working to complete the task so number will always be different
 // making a new instance of the DownloadStatus class
 //        var status = new DownloadStatus();
 //
