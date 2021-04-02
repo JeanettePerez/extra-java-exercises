@@ -4,6 +4,7 @@ package streams;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -89,17 +90,35 @@ public class StreamsDemo {
 //                .forEach(System.out::println);
 // ========= Peeking Elements =========
         // useful for trouble shooting problems
-                    List<Movie> movies = List.of(
-            new Movie("a", 10),
-            new Movie("b",20),
-            new Movie("c",30)
-    );
-     movies.stream()
-             .filter(m -> m.getLikes() > 10)
-             .peek(m -> System.out.println("filtered: " + m.getTitle()))
-             .map(Movie::getTitle)
-             .peek(t -> System.out.println("Mapped: " + t))
-             .forEach(System.out::println);
+//        List<Movie> movies = List.of(
+//            new Movie("a", 10),
+//            new Movie("b",20),
+//            new Movie("c",30)
+//    );
+//     movies.stream()
+//             .filter(m -> m.getLikes() > 10)
+//             .peek(m -> System.out.println("filtered: " + m.getTitle()))
+//             .map(Movie::getTitle)
+//             .peek(t -> System.out.println("Mapped: " + t))
+//             .forEach(System.out::println);
+// ========= Reducers =========
+        List<Movie> movies = List.of(
+                new Movie("a", 10),
+                new Movie("b",20),
+                new Movie("c",30)
+        );
+// if you want to add all the likes
+//        Optional<Integer> sum = movies.stream()
+//                .map(Movie::getLikes)
+//                .reduce(Integer::sum); // sum is a method in Integer class
+//        // .reduce((a,b) -> a+b) the accumulator
+//        System.out.println(sum.orElse(0));
+        Integer sum = movies.stream()
+                .map(Movie::getLikes)
+                .reduce(0, Integer::sum); // sum is a method in Integer class
+        // .reduce((a,b) -> a+b) the accumulator
+        System.out.println(sum);
+        // reduce we can preform general purpose reduction
     }
 
     public static void main(String[] args) {
