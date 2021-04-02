@@ -2,6 +2,7 @@ package streams;
 
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -64,8 +65,15 @@ public class StreamsDemo {
 //            .skip(20)
 //            .limit(10)
 //            .forEach(m -> System.out.println(m.getTitle()));
-
-
+// ========== sorting streams =========
+            List<Movie> movies = List.of(
+            new Movie("b", 10),
+            new Movie("a",20),
+            new Movie("c",30)
+    );
+    movies.stream()
+            .sorted(Comparator.comparing(Movie::getTitle).reversed()) // to return in desending order with .reverse()
+            .forEach(m -> System.out.println(m.getTitle()));
 
     }
 
