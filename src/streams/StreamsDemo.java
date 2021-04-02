@@ -1,14 +1,8 @@
 package streams;
 
 
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamsDemo {
     public static void streamDemo(){
@@ -124,21 +118,45 @@ public class StreamsDemo {
 
 
 // ========= Collectors =========
-        List<Movie> movies = List.of(
-                new Movie("a", 10),
-                new Movie("b",20),
-                new Movie("c",30)
-        );
-//        var results = movies.stream()
+//        List<Movie> movies = List.of(
+//                new Movie("a", 10),
+//                new Movie("b",20),
+//                new Movie("c",30,)
+//        );
+////        var results = movies.stream()
+////                .filter(m -> m.getLikes() > 10)
+////                .collect(Collectors.summarizingInt(Movie::getLikes));
+////        System.out.println(results);
+//
+//        var results2 = movies.stream()
 //                .filter(m -> m.getLikes() > 10)
-//                .collect(Collectors.summarizingInt(Movie::getLikes));
-//        System.out.println(results);
+//                .map(Movie::getTitle)
+//                .collect(Collectors.joining(", "));
+//        System.out.println(results2);
 
-        var results2 = movies.stream()
-                .filter(m -> m.getLikes() > 10)
-                .map(Movie::getTitle)
-                .collect(Collectors.joining(", "));
-        System.out.println(results2);
+// ========== Grouping Elements =========
+//        List<Movie> movies = List.of(
+//                new Movie("a", 10, Genre.THILLER),
+//                new Movie("b",20, Genre.ACTION),
+//                new Movie("c",30, Genre.ACTION)
+//        );
+//    // group movies based on their genre
+////      var results = movies.stream()
+////                .collect(Collectors.groupingBy(
+////                        Movie::getGenre, Collectors.counting()));
+////        System.out.println(results);
+//        var results = movies.stream()
+//                .collect(Collectors.groupingBy(
+//                        Movie::getGenre,
+//                        Collectors.mapping(Movie::getTitle,
+//                                Collectors.joining(", "))));
+//        System.out.println(results);
+// ========= Partitionig Elements
+        List<Movie> movies = List.of(
+                new Movie("a", 10, Genre.THILLER),
+                new Movie("b",20, Genre.ACTION),
+                new Movie("c",30, Genre.ACTION)
+        );
     }
 
     public static void main(String[] args) {
