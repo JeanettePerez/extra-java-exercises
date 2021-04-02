@@ -157,6 +157,13 @@ public class StreamsDemo {
                 new Movie("b",20, Genre.ACTION),
                 new Movie("c",30, Genre.ACTION)
         );
+        // partitioning the data into two categories
+        var results = movies.stream()
+                .collect(Collectors.partitioningBy(
+                        m -> m.getLikes() > 20,
+                        Collectors.mapping(Movie::getTitle, // map movie objects to strings and the join them
+                                            Collectors.joining(", "))));
+        System.out.println(results);
     }
 
     public static void main(String[] args) {
