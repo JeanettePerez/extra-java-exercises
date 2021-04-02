@@ -1,8 +1,11 @@
 package executors;
 
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
+import java.util.function.Supplier;
 
 public class ExecutorDemo {
     public static void executorShow() {
@@ -18,7 +21,7 @@ public class ExecutorDemo {
 //
 //        }
 // ========== Callables and futures ==========
-        // callable interface:
+        // callable interface: contains a single method call() that returns a generic value
         // Future interface: represents future result of an operation
 //        var executor = Executors.newFixedThreadPool(2);
 //        try {
@@ -40,7 +43,26 @@ public class ExecutorDemo {
 //
 //        }
 // ========= Asynchronous Programming ===========
-        
+// the problem with the code above comes when dealing with bigger applications
+        // usually the main thread is responsible for UI controls and can run into
+        // problems because ifyou make he main thread wait for another thread it is not going to be able
+        // to respond to UI events. application will freeze.
+        // Asynchronous Programming: writing code that is none blocking
+        // using the completable futures
+// ========== completable futures ==========
+      //  explicitly complete a future object
+        // creating a completable future object
+//        Supplier<Integer> task = () -> 1;
+//        var future = CompletableFuture.supplyAsync(task); // to return a value
+//        try {
+//            var result = future.get();
+//        System.out.println(result);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+// ========== Implementing an Asynchronous API ===========
 
     }
 
