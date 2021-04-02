@@ -76,17 +76,30 @@ public class StreamsDemo {
 //            .forEach(m -> System.out.println(m.getTitle()));
 
 // ========= getting unique Elements =========
-        List<Movie> movies = List.of(
-                new Movie("b", 10),
-                new Movie("b", 10),
-                new Movie("a",20),
-                new Movie("c",30)
-        );
-// TODO: if the likes were the price of a movie and you don't want to print something twice
-        movies.stream()
-                .map(Movie::getLikes)
-                .distinct()
-                .forEach(System.out::println);
+//        List<Movie> movies = List.of(
+//                new Movie("b", 10),
+//                new Movie("b", 10),
+//                new Movie("a",20),
+//                new Movie("c",30)
+//        );
+//// TODO: if the likes were the price of a movie and you don't want to print something twice
+//        movies.stream()
+//                .map(Movie::getLikes)
+//                .distinct()
+//                .forEach(System.out::println);
+// ========= Peeking Elements =========
+        // useful for trouble shooting problems
+                    List<Movie> movies = List.of(
+            new Movie("a", 10),
+            new Movie("b",20),
+            new Movie("c",30)
+    );
+     movies.stream()
+             .filter(m -> m.getLikes() > 10)
+             .peek(m -> System.out.println("filtered: " + m.getTitle()))
+             .map(Movie::getTitle)
+             .peek(t -> System.out.println("Mapped: " + t))
+             .forEach(System.out::println);
     }
 
     public static void main(String[] args) {
