@@ -29,22 +29,30 @@ public class CompletableFutureDemo {
 //        // email -> playlist
 // ========== Combining Completable Futures ===========
     public static void completableFutureDemoShow(){
-        // ability to start two task async and combine the results
-        // TODO: Call a remote service to get the price of a product in USD.
-        //  Call another service to get the exchange rate of dollars in EUROS.
-        var first = CompletableFuture.supplyAsync(() -> 20);
-        var second = CompletableFuture.supplyAsync(() -> 0.9);
-        first.thenCombine(second, (price, exchangeRate) -> price * exchangeRate).thenAccept(System.out::println);
-        // TODO: repeat the first todo except this time the price is a string that reads 20USD. Convert to get your results
-        var USD = CompletableFuture
-                .supplyAsync(() -> "20USD")
-                .thenApply(str -> {
-                    var price = str.replace("USD", "");
-                    return Integer.parseInt(price);
-                });
-        var rate = CompletableFuture.supplyAsync(() -> 0.9);
-        USD.thenCombine(rate,(price, exchangeRate) -> price * exchangeRate).thenAccept(System.out::println);
-
+//        // ability to start two task async and combine the results
+//        // TODO: Call a remote service to get the price of a product in USD.
+//        //  Call another service to get the exchange rate of dollars in EUROS.
+//        var first = CompletableFuture.supplyAsync(() -> 20);
+//        var second = CompletableFuture.supplyAsync(() -> 0.9);
+//        first.thenCombine(second, (price, exchangeRate) -> price * exchangeRate).thenAccept(System.out::println);
+//        // TODO: repeat the first todo except this time the price is a string that reads 20USD. Convert to get your results
+//        var USD = CompletableFuture
+//                .supplyAsync(() -> "20USD")
+//                .thenApply(str -> {
+//                    var price = str.replace("USD", "");
+//                    return Integer.parseInt(price);
+//                });
+//        var rate = CompletableFuture.supplyAsync(() -> 0.9);
+//        USD.thenCombine(rate,(price, exchangeRate) -> price * exchangeRate).thenAccept(System.out::println);
+// === Price Finder ===
+        var service = new FlightService();
+        service.getQuote("site1")
+                .thenAccept(System.out::println);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
     }
